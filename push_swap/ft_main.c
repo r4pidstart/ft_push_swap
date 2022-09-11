@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:26 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/12 00:39:43 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/12 00:42:47 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,12 @@ static int	ft_custom_atoi(const char *str, int *chk)
 		ret = ret * 10 + (*(cur++) - '0');
 	if (minus_cnt)
 		ret *= -1;
-	*chk = 0;
 	if (*cur != '\0')
-		*chk = 1;
+		(*chk)++;
 	return (ret);
 }
 
-static int	read_argument(char *str)
+int	read_argument(char *str)
 {
 	char	**lst;
 	int		idx;
@@ -50,14 +49,15 @@ static int	read_argument(char *str)
 	if (!lst)
 		return (1);
 	idx = 0;
+	chk = 0;
 	while (lst[idx])
 	{
-		tmp = ft_custom_atoi(lst[idx++], &chk);
-		if (chk)
-			return (1);
+		tmp = ft_custom_atoi(lst[idx], &chk);
 		duallist(0, push_back, tmp);
+		free(lst[idx++]);
 	}
-	return (0);
+	free(lst);
+	return (chk);
 }
 
 int	main(int argc, char **argv)
