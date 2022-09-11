@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 21:55:51 by tjo               #+#    #+#             */
-/*   Updated: 2022/07/30 00:06:29 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/12 00:25:05 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include<stdarg.h>
 # include<unistd.h>
 # include<stdlib.h>
+# include"../libft/ft_libft.h"
 
 enum	e_args
 {
@@ -47,7 +48,7 @@ int		print_dec(int flag, int width, int precision, va_list *vl);
 int		print_hex(int flag, int width, int precision, va_list *vl);
 
 /* ft_printf_utils.c */
-size_t	ft_strlen(const char *s);
+// size_t	ft_strlen(const char *s);
 int		__max(int a, int b);
 int		get_length(int base, size_t n);
 void	custom_atoi_udec(char *tmp, int len, unsigned int num);
