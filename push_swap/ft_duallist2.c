@@ -6,13 +6,13 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 17:08:46 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/11 21:01:20 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/12 00:14:53 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"ft_header.h"
 
-int	init(t_stack *stk)
+int	dl_init(t_stack *stk)
 {
 	stk->front = (t_dl *)malloc(sizeof(t_dl));
 	stk->back = stk->front;
