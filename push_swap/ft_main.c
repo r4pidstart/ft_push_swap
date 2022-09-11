@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:26 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/12 00:28:23 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/12 00:39:43 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	main(int argc, char **argv)
 	idx = 1;
 	while (idx < argc)
 	{
-		if (read_argument(argv[idx]))
+		if (read_argument(argv[idx++]))
 		{
 			duallist(0, delete, 0);
 			duallist(1, delete, 0);

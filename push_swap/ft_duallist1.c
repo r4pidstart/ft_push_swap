@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 16:46:16 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/12 00:14:50 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/12 00:38:27 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ static int	dl_pop_front(t_stack *stk)
 	int		ret;
 	t_dl	*tmp;
 
-	tmp = stk->front;
+	tmp = stk->front->next;
 	ret = tmp->data;
-	stk->front->next->prev = 0;
-	stk->front = stk->front->next;
+	tmp->next->prev = stk->front;
+	stk->front->next = tmp->next;
 	free(tmp);
 	stk->size--;
 	return (ret);
@@ -56,9 +56,9 @@ static int	dl_free(t_stack *stk)
 static int	get(t_stack *stk, int cmd)
 {
 	if (cmd == front)
-		return (stk->front->data);
-	else if (cmd == second_front)
 		return (stk->front->next->data);
+	else if (cmd == second_front)
+		return (stk->front->next->next->data);
 	else if (cmd == back)
 		return (stk->back->prev->data);
 	else if (cmd == second_back)
