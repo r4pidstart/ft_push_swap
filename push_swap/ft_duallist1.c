@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 16:46:16 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/11 22:01:51 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/12 00:14:50 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ static int	get(t_stack *stk, int cmd)
 		return (stk->back->prev->data);
 	else if (cmd == second_back)
 		return (stk->back->prev->prev->data);
+	else
+		return (-1);
 }
 
 int	duallist(int stack, int cmd, int target)

@@ -6,7 +6,7 @@
 #    By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/31 12:48:31 by tjo               #+#    #+#              #
-#    Updated: 2022/09/03 04:21:28 by tjo              ###   ########.fr        #
+#    Updated: 2022/09/12 00:30:10 by tjo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 LIBFT = mylibft/libft.a
 LIBFT_SRCS = mylibft
-SRCS = ft_main.c
+SRCS = ft_main.c ft_duallist1.c ft_duallist2.c
 
 ifdef BONUS
 	FOLDER = bonus/
@@ -26,8 +26,7 @@ endif
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(addprefix $(FOLDER), $(SRCS:.c=.o))
-#	clang -Wall -Wextra -Werror -g3 -ggdb \#
-	clang \
+	clang -Wall -Wextra -Werror -g3 -ggdb \
 	-o ./$(NAME) \
 	$(addprefix $(FOLDER), $(SRCS)) \
 	-Lmylibft -lft
@@ -43,6 +42,7 @@ bonus:
 
 clean:
 	rm -rf */*.o
+	rm -rf *.o
 	make clean -C $(LIBFT_SRCS)
 	
 fclean: clean
