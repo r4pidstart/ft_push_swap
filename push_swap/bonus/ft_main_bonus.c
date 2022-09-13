@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:26 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/13 22:52:14 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/13 23:30:14 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	check(void)
 	int		tmp;
 
 	flag = 0;
-	prev = -2147483648 - 1;
+	prev = INT32_MIN - 1;
 	flag += duallist(1, size, 0);
 	while (duallist(0, size, 0))
 	{

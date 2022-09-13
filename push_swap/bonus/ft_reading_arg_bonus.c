@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 00:44:30 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/13 22:56:38 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/13 23:30:53 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	ft_custom_atoi(const char *str, int *chk)
 	if (minus_cnt)
 		ret *= -1;
 	if (*cur != '\0' || ft_strlen(str) > 11 \
-		|| ret < -2147483648 || ret > 2147483647)
+		|| ret < INT32_MIN || ret > INT32_MAX)
 		(*chk)++;
 	return (ret);
 }
