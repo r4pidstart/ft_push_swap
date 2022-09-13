@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:37 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/13 23:57:42 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/14 00:30:49 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,16 @@ typedef struct s_stack
 	t_dl	*back;
 	int		size;
 }t_stack;
+
+typedef struct s_compress
+{
+	int		compressed[500];
+	int		idx[2];
+	long	prev;
+	long	tmp;
+	int		now;
+	int		siz;
+}t_compress;
 
 enum e_cmd
 {
@@ -59,5 +69,8 @@ int	dl_modify(t_stack *stk, int target);
 
 /* ft_reading_arg.c */
 int	read_argument(char *str);
+
+/* ft_compress.c */
+int	compress(void);
 
 #endif

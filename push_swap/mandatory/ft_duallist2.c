@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 17:08:46 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/13 23:56:53 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/14 00:30:41 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,13 +72,18 @@ int	dl_iterate(t_stack *stk, int stack)
 
 int	dl_modify(t_stack *stk, int target)
 {
-	static t_dl	*iter;
+	static int	idx = 1;
+	t_dl		*iter;
 
-	if (!iter)
-		iter = stk->front->next;
-	iter->data = target;
-	iter = iter->next;
-	if (iter == stk->back)
-		iter = 0;
-	return (0);
+	iter = stk->front->next;
+	while (iter != stk->back)
+	{
+		if (iter->data == target)
+		{
+			iter->data = idx++;
+			return (0);
+		}
+		iter = iter->next;
+	}
+	return (1);
 }
