@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:26 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/13 18:53:15 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/13 22:52:40 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ int	main(int argc, char **argv)
 		{
 			duallist(0, delete, 0);
 			duallist(1, delete, 0);
-			return (!ft_printf("Wrong argument\n"));
+			return (!ft_printf("Error\n"));
 		}	
 	}
-	
 }
