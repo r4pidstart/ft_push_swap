@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:26 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/13 22:47:08 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/13 22:51:07 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,16 @@ static void	check(void)
 	flag += duallist(1, size, 0);
 	while (duallist(0, size, 0))
 	{
-		
+		tmp = duallist(0, pop_front, 0);
+		flag += (prev > tmp);
+		prev = tmp;
 	}
 	duallist(0, delete, 0);
 	duallist(1, delete, 0);
+	if (flag)
+		ft_printf("KO\n");
+	else
+		ft_printf("OK\n");
 }
 
 int	main(int argc, char **argv)
