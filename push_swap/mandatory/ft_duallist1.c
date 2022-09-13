@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 16:46:16 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/12 00:38:27 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/13 23:53:07 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,10 @@ int	duallist(int stack, int cmd, int target)
 		return (dl_free(&stk[stack]));
 	else if (cmd == size)
 		return (stk[stack].size);
+	else if (cmd == iterate)
+		return (dl_iterate(&stk[stack], stack));
+	else if (cmd == modify)
+		return (dl_modify(&stk[stack], target));
 	else
 		return (get(&stk[stack], cmd));
 }

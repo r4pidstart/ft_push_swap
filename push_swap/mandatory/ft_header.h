@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:37 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/13 21:28:40 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/13 23:57:42 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 # define FT_HEADER_H
 
 # include<stdlib.h>
-# include"./mylibft/libft.h"
+# include"../mylibft/libft.h"
 
 typedef struct s_dl
 {
-	int			data;
+	long		data;
 	struct s_dl	*next;
 	struct s_dl	*prev;
 }t_dl;
@@ -39,6 +39,8 @@ enum e_cmd
 	pop_front = 4,
 	delete = 5,
 	size = 6,
+	iterate = 7,
+	modify = 8,
 	front = 11,
 	second_front = 12,
 	back = 13,
@@ -52,6 +54,8 @@ int	duallist(int stack, int cmd, int target);
 int	dl_init(t_stack *stk);
 int	dl_push_back(t_stack *stk, int target);
 int	dl_push_front(t_stack *stk, int target);
+int	dl_iterate(t_stack *stk, int stack);
+int	dl_modify(t_stack *stk, int target);
 
 /* ft_reading_arg.c */
 int	read_argument(char *str);

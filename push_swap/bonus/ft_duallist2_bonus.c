@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 17:08:46 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/13 19:36:13 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/13 23:58:17 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,32 @@ int	dl_push_front(t_stack *stk, int target)
 	tmp->next->prev = tmp;
 	stk->front = tmp;
 	stk->size++;
+	return (0);
+}
+
+int	dl_iterate(t_stack *stk, int stack)
+{
+	static t_dl	*iter[2];
+	int			ret;
+
+	if (!iter[stack])
+		iter[stack] = stk->front->next;
+	ret = iter[stack]->data;
+	iter[stack] = iter[stack]->next;
+	if (iter[stack] == stk->back)
+		iter[stack] = 0;
+	return (ret);
+}
+
+int	dl_modify(t_stack *stk, int target)
+{
+	static t_dl	*iter;
+
+	if (!iter)
+		iter = stk->front->next;
+	iter->data = target;
+	iter = iter->next;
+	if (iter == stk->back)
+		iter = 0;
 	return (0);
 }
