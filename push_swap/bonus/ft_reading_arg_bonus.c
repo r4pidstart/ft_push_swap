@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_main.c                                          :+:      :+:    :+:   */
+/*   ft_leading_arg.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/03 02:43:26 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/12 00:42:47 by tjo              ###   ########.fr       */
+/*   Created: 2022/09/12 00:44:30 by tjo               #+#    #+#             */
+/*   Updated: 2022/09/12 00:44:39 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,29 +58,4 @@ int	read_argument(char *str)
 	}
 	free(lst);
 	return (chk);
-}
-
-int	main(int argc, char **argv)
-{
-	int	idx;
-
-	if (argc == 1)
-		return (!ft_printf("No argument\n"));
-	if (duallist(0, init, 0) || duallist(1, init, 0))
-		return (!ft_printf("Malloc fail\n"));
-	idx = 1;
-	while (idx < argc)
-	{
-		if (read_argument(argv[idx++]))
-		{
-			duallist(0, delete, 0);
-			duallist(1, delete, 0);
-			return (!ft_printf("Wrong argument\n"));
-		}	
-	}
-
-	while (duallist(0, size, 0))
-	{
-		ft_printf("%d ", duallist(0, pop_front, 0));
-	}
 }

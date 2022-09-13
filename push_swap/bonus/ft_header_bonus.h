@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_header.h                                        :+:      :+:    :+:   */
+/*   ft_header_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:37 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/11 22:01:50 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/13 21:28:36 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,8 @@ int	duallist(int stack, int cmd, int target);
 int	dl_init(t_stack *stk);
 int	dl_push_back(t_stack *stk, int target);
 int	dl_push_front(t_stack *stk, int target);
+
+/* ft_reading_arg.c */
+int	read_argument(char *str);
 
 #endif

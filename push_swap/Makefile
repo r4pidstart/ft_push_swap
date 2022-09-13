@@ -6,7 +6,7 @@
 #    By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/31 12:48:31 by tjo               #+#    #+#              #
-#    Updated: 2022/09/12 00:30:10 by tjo              ###   ########.fr        #
+#    Updated: 2022/09/13 21:29:17 by tjo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,12 +15,15 @@ CFLAGS = -Wall -Wextra -Werror
 
 LIBFT = mylibft/libft.a
 LIBFT_SRCS = mylibft
-SRCS = ft_main.c ft_duallist1.c ft_duallist2.c
+SRCS = ft_main.c ft_duallist1.c ft_duallist2.c ft_reading_arg.c
 
 ifdef BONUS
+	NAME = checker
 	FOLDER = bonus/
+	SRCS = ft_main_bonus.c ft_duallist1_bonus.c ft_duallist2_bonus.c \
+		   ft_reading_arg_bonus.c ft_reading_line_bonus.c
 else
-	FOLDER = 
+	FOLDER = mandatory/
 endif
 
 all: $(NAME)
