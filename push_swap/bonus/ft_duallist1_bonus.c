@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 16:46:16 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/13 23:58:45 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/15 00:08:41 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ static int	dl_pop_back(t_stack *stk)
 
 	tmp = stk->back->prev;
 	ret = tmp->data;
-	stk->back->prev->next = stk->back;
-	stk->back->prev = stk->back->prev->prev;
+	tmp->prev->next = stk->back;
+	stk->back->prev = tmp->prev;
 	free(tmp);
 	stk->size--;
 	return (ret);
