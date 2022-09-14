@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:37 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/14 20:04:01 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/14 20:18:51 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct s_partitioning
 	int	pt2;
 	int	tmp;
 	int	idx;
+	int	ret;
 }t_partitioning;
 
 enum e_cmd
@@ -83,19 +84,22 @@ enum e_instruction
 };
 
 /* ft_duallist1.c */
-int	duallist(int stack, int cmd, int target);
+int		duallist(int stack, int cmd, int target);
 
 /* ft_duallist2.c */
-int	dl_init(t_stack *stk);
-int	dl_push_back(t_stack *stk, int target);
-int	dl_push_front(t_stack *stk, int target);
-int	dl_iterate(t_stack *stk, int stack);
-int	dl_modify(t_stack *stk, int target);
+int		dl_init(t_stack *stk);
+int		dl_push_back(t_stack *stk, int target);
+int		dl_push_front(t_stack *stk, int target);
+int		dl_iterate(t_stack *stk, int stack);
+int		dl_modify(t_stack *stk, int target);
 
 /* ft_reading_arg.c */
-int	read_argument(char *str);
+int		read_argument(char *str);
 
 /* ft_compress.c */
-int	compress(void);
+int		compress(void);
+
+/* ft_record.c */
+t_list	**record(int type);
 
 #endif

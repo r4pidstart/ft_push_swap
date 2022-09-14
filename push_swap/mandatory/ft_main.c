@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:26 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/14 19:19:29 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/14 20:20:11 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static int	print_error(void)
 {
+	ft_lstclear(record(pointer), free);
 	duallist(0, delete, 0);
 	duallist(1, delete, 0);
 	return (!ft_printf("Error\n"));
@@ -33,11 +34,6 @@ int	main(int argc, char **argv)
 		if (read_argument(argv[idx++]))
 			return (print_error());
 	}
-	if (compress())
+	if (compress() || sort())
 		return (print_error());
-	
-	while(duallist(0, size, 0))
-	{
-		ft_printf("%d ", duallist(0, pop_front, 0));
-	}
 }
