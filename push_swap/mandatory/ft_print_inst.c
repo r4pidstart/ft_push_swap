@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 00:34:26 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/15 00:36:27 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/15 00:42:00 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,24 @@ int	print(void)
 {
 	t_list	**inst;
 	t_list	*tmp;
+	int		type;
 
 	inst = record(pointer);
 	tmp = *inst;
 	while (tmp)
 	{
-		print_inst(*((int *)tmp->content));
+		type = *((int *)tmp->content);
+		if (type == ra || type == rb)
+		{
+			if ((type == ra && tmp->next && *((int *)tmp->next->content) == rb) \
+				|| (tmp->next && *((int *)tmp->next->content) == ra))
+			{
+				print_inst(rr);
+				tmp = tmp->next->next;
+				continue ;
+			}
+		}
+		print_inst(type);
 		tmp = tmp->next;
 	}
 	return (0);
