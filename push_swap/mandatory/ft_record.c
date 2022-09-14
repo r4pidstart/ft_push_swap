@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:54:10 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/14 20:12:42 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/14 20:19:04 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ static int	make_node(int type)
 	return (tmp);
 }
 
-t_list	*record(int type)
+t_list	**record(int type)
 {
 	static t_list	*lst;
 	int				*node;
 
 	if (type == pointer)
-		return (lst);
+		return (&lst);
 	else
 	{
 		node = make_node(type);
