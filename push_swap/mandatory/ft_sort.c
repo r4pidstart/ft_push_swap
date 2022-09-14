@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:43:56 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/15 00:08:05 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/15 00:10:29 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,14 +63,10 @@ static int	get_dist(int now, int target)
 	int	cnt;
 
 	cnt = 1;
-	int test=-1;
-	while (test != now)
-		test = duallist(1, iterate, 0);
-	while (test != target)
-	{
-		test = duallist(1, iterate, 0);
+	while (duallist(1, iterate, 0) != now)
+		(void)now;
+	while (duallist(1, iterate, 0) != target)
 		cnt++;
-	}
 	return (cnt);
 }
 
@@ -94,7 +90,6 @@ static int	find_and_push(void)
 		fi.dir = fi.dist > (duallist(1, size, 0) / 2 + 1);
 		while (duallist(1, front, 0) != fi.idx)
 		{
-			(void)fordebug;
 			if (!fi.dir)
 			{
 				duallist(1, push_back, duallist(1, pop_front, 0));
@@ -113,18 +108,9 @@ static int	find_and_push(void)
 	return (fi.ret);
 }
 
-int test()
-{
-	while (duallist(0, size, 0))
-		ft_printf("%d ", duallist(0, pop_front, 0));
-	ft_printf("\n");
-	while (duallist(1, size, 0))
-		ft_printf("%d ", duallist(1, pop_front, 0));
-	return (1);
-}
 int	sort(void)
 {
-	if (partitioning() || merging() || find_and_push() || test())
+	if (partitioning() || merging() || find_and_push())
 		return (1);
 	return (0);
 }
