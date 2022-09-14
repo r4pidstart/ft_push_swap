@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:43:56 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/15 00:15:29 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/15 00:15:54 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,6 @@ static int	get_dist(int now, int target)
 		cnt++;
 	return (cnt);
 }
-
-typedef struct s_finding
-{
-	int	dist;
-	int	idx;
-	int	dir;
-	int	ret;
-}t_finding;
 
 static int	find_and_push(void)
 {

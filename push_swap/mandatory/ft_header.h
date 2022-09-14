@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:37 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/14 21:39:18 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/15 00:16:06 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,14 @@ typedef struct s_partitioning
 	int	idx;
 	int	ret;
 }t_partitioning;
+
+typedef struct s_finding
+{
+	int	dist;
+	int	idx;
+	int	dir;
+	int	ret;
+}t_finding;
 
 enum e_cmd
 {
