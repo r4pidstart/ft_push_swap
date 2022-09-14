@@ -6,13 +6,13 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:54:10 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/14 20:19:04 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/14 21:40:44 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"ft_header.h"
 
-static int	make_node(int type)
+static int	*make_node(int type)
 {
 	int	*tmp;
 
@@ -34,7 +34,7 @@ t_list	**record(int type)
 	{
 		node = make_node(type);
 		if (!node)
-			return (1);
+			return ((t_list **)1);
 		ft_lstadd_back(&lst, ft_lstnew(node));
 		return (0);
 	}

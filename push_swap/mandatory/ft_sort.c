@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:43:56 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/14 21:37:08 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/14 21:46:15 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,18 @@ static int	partitioning(void)
 		if (pt.tmp < pt.pt1)
 		{
 			duallist(0, push_back, pt.tmp);
-			pt.ret += (int)record(ra);
+			pt.ret += (int)(size_t)record(ra);
 		}
 		else if (pt.tmp < pt.pt2)
 		{
 			duallist(0, push_front, pt.tmp);
-			pt.ret += (int)record(pb);
+			pt.ret += (int)(size_t)record(pb);
 		}
 		else
 		{
 			duallist(0, push_back, pt.tmp);
-			pt.ret += (int)record(pb);
-			pt.ret += (int)record(rb);
+			pt.ret += (int)(size_t)record(pb);
+			pt.ret += (int)(size_t)record(rb);
 		}
 	}
 	return (pt.ret);
@@ -53,7 +53,7 @@ static int	merging(void)
 	while (++cnt < siz)
 	{
 		duallist(1, push_front, duallist(0, pop_front, 0));
-		ret += (int)record(pb);
+		ret += (int)(size_t)record(pb);
 	}
 	return (ret);
 }
@@ -93,16 +93,16 @@ static int	find_and_push(void)
 			if (!fi.dir)
 			{
 				duallist(1, push_back, duallist(1, pop_front, 0));
-				fi.ret += (int)record(rb);
+				fi.ret += (int)(size_t)record(rb);
 			}
 			else
 			{
 				duallist(1, push_front, duallist(1, pop_back, 0));
-				fi.ret += (int)record(rrb);
+				fi.ret += (int)(size_t)record(rrb);
 			}
 		}
 		duallist(0, push_front, duallist(1, pop_front, 0));
-		fi.ret += (int)record(pa);
+		fi.ret += (int)(size_t)record(pa);
 	}
 	return (fi.ret);
 }
@@ -111,4 +111,5 @@ int	sort(void)
 {
 	if (partitioning() || merging() || find_and_push())
 		return (1);
+	return (0);
 }

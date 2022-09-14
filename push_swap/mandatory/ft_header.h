@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:37 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/14 20:18:51 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/14 21:39:18 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,8 @@ int		compress(void);
 
 /* ft_record.c */
 t_list	**record(int type);
+
+/* ft_sort.c */
+int		sort(void);
 
 #endif

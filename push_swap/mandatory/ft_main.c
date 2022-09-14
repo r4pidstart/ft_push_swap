@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:26 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/14 20:20:11 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/14 21:38:52 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,7 @@ int	main(int argc, char **argv)
 	}
 	if (compress() || sort())
 		return (print_error());
+	
+	while (duallist(0, size, 0))
+		ft_printf("%d ", duallist(0, pop_front, 0));
 }
