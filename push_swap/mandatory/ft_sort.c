@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:43:56 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/15 00:10:29 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/15 00:15:29 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ typedef struct s_finding
 {
 	int	dist;
 	int	idx;
-	int	siz;
 	int	dir;
 	int	ret;
 }t_finding;
@@ -83,12 +82,12 @@ static int	find_and_push(void)
 {
 	t_finding	fi;
 
-	fi = (t_finding){.idx = 0, .siz = duallist(1, size, 0), .ret = 0};
-	while (++fi.idx <= fi.siz)
+	fi = (t_finding){.idx = duallist(1, size, 0), .ret = 0};
+	while (--fi.idx >= 0)
 	{
-		fi.dist = get_dist(duallist(1, front, 0), fi.idx);
-		fi.dir = fi.dist > (duallist(1, size, 0) / 2 + 1);
-		while (duallist(1, front, 0) != fi.idx)
+		fi.dist = get_dist(duallist(1, front, 0), fi.idx + 1);
+		fi.dir = fi.dist > (duallist(1, size, 0) / 2);
+		while (duallist(1, front, 0) != fi.idx + 1)
 		{
 			if (!fi.dir)
 			{
