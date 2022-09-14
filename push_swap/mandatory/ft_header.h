@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:37 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/14 00:30:49 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/14 20:04:01 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,15 @@ typedef struct s_compress
 	int		siz;
 }t_compress;
 
+typedef struct s_partitioning
+{
+	int	siz;
+	int	pt1;
+	int	pt2;
+	int	tmp;
+	int	idx;
+}t_partitioning;
+
 enum e_cmd
 {
 	init = 0,
@@ -55,6 +64,22 @@ enum e_cmd
 	second_front = 12,
 	back = 13,
 	second_back = 14
+};
+
+enum e_instruction
+{
+	sa = 1,
+	sb = 2,
+	ss = 3,
+	pa = 4,
+	pb = 5,
+	ra = 6,
+	rb = 7,
+	rr = 8,
+	rra = 9,
+	rrb = 10,
+	rrr = 11,
+	pointer = 20
 };
 
 /* ft_duallist1.c */
