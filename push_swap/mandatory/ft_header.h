@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:37 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/15 00:16:06 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/15 00:35:56 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,5 +112,8 @@ t_list	**record(int type);
 
 /* ft_sort.c */
 int		sort(void);
+
+/* ft_print_inst.c */
+int		print(void);
 
 #endif
