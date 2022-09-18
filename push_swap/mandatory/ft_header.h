@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:37 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/15 00:35:56 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/19 01:29:10 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ enum e_cmd
 	size = 6,
 	iterate = 7,
 	modify = 8,
+	find = 9,
 	front = 11,
 	second_front = 12,
 	back = 13,
@@ -99,6 +100,7 @@ int		dl_init(t_stack *stk);
 int		dl_push_back(t_stack *stk, int target);
 int		dl_push_front(t_stack *stk, int target);
 int		dl_iterate(t_stack *stk, int stack);
+int		dl_find(t_stack *stk, int target);
 int		dl_modify(t_stack *stk, int target);
 
 /* ft_reading_arg.c */

@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:43:56 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/15 00:15:54 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/19 01:28:05 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,17 +58,17 @@ static int	merging(void)
 	return (ret);
 }
 
-static int	get_dist(int now, int target)
-{
-	int	cnt;
+// static int	get_dist(int now, int target)
+// {
+// 	int	cnt;
 
-	cnt = 1;
-	while (duallist(1, iterate, 0) != now)
-		(void)now;
-	while (duallist(1, iterate, 0) != target)
-		cnt++;
-	return (cnt);
-}
+// 	cnt = 1;
+// 	while (duallist(1, iterate, 0) != now)
+// 		(void)now;
+// 	while (duallist(1, iterate, 0) != target)
+// 		cnt++;
+// 	return (cnt);
+// }
 
 static int	find_and_push(void)
 {
@@ -77,8 +77,9 @@ static int	find_and_push(void)
 	fi = (t_finding){.idx = duallist(1, size, 0), .ret = 0};
 	while (--fi.idx >= 0)
 	{
-		fi.dist = get_dist(duallist(1, front, 0), fi.idx + 1);
-		fi.dir = fi.dist > (duallist(1, size, 0) / 2);
+		// fi.dist = get_dist(duallist(1, front, 0), fi.idx + 1);
+		// fi.dir = fi.dist > (duallist(1, size, 0) / 2);
+		fi.dir = duallist(1, find, fi.idx + 1) > duallist(1, size, 0) / 2;
 		while (duallist(1, front, 0) != fi.idx + 1)
 		{
 			if (!fi.dir)
@@ -92,7 +93,7 @@ static int	find_and_push(void)
 				fi.ret += (int)(size_t)record(rrb);
 			}
 		}
-		duallist(1, iterate, 0);
+		// duallist(1, iterate, 0);
 		duallist(0, push_front, duallist(1, pop_front, 0));
 		fi.ret += (int)(size_t)record(pa);
 	}
