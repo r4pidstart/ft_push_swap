@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 00:34:26 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/19 01:47:11 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/19 02:09:27 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	print(void)
 {
 	t_list	**inst;
 	t_list	*tmp;
+	t_list	*now;
 	int		type;
 
 	inst = record(pointer);
@@ -60,7 +61,10 @@ int	print(void)
 		// 	}
 		// }
 		print_inst(type);
+		now = tmp;
 		tmp = tmp->next;
+		free(now);
 	}
+	free(inst);
 	return (0);
 }
