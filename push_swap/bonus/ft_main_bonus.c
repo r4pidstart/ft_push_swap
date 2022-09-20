@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:26 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/13 23:30:14 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/21 02:20:17 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static int	read_lines(void)
 			return (1);
 		line = get_next_line(0);
 	}
+	return (0);
 }
 
 static void	check(void)
@@ -34,7 +35,7 @@ static void	check(void)
 	int		tmp;
 
 	flag = 0;
-	prev = INT32_MIN - 1;
+	prev = (long)INT32_MIN - 1;
 	flag += duallist(1, size, 0);
 	while (duallist(0, size, 0))
 	{

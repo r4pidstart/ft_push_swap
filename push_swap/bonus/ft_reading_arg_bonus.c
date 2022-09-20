@@ -6,11 +6,11 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 00:44:30 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/13 23:30:53 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/21 02:20:31 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"ft_header.h"
+#include"ft_header_bonus.h"
 
 static int	ft_custom_atoi(const char *str, int *chk)
 {

@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 22:39:29 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/13 22:40:52 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/21 02:22:12 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	list_swap(int stk, int tmp[])
 	return (0);
 }
 
-static int	do_instructtion2(char *line)
+static int	do_instruction2(char *line)
 {
 	if (!ft_strncmp(line, "ra", -1) && duallist(0, size, 0))
 		return (duallist(0, push_back, duallist(0, pop_front, 0)));
@@ -55,5 +55,5 @@ int	do_instruction(int tmp[], char *line)
 		return (duallist(0, push_front, duallist(1, pop_front, 0)));
 	if (!ft_strncmp(line, "pb", -1) && duallist(0, size, 0))
 		return (duallist(1, push_front, duallist(0, pop_front, 0)));
-	return do_instruction2(line);
+	return (do_instruction2(line));
 }
