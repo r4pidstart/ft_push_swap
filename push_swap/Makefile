@@ -6,7 +6,7 @@
 #    By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/31 12:48:31 by tjo               #+#    #+#              #
-#    Updated: 2022/09/15 00:36:16 by tjo              ###   ########.fr        #
+#    Updated: 2022/09/21 02:19:19 by tjo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,8 +41,8 @@ $(LIBFT):
 %.o: %.c
 	gcc $(CFLAGS) -c $^ -o $@
 	
-bonus:
-	$(MAKE) BONUS=1 $(NAME)
+bonus: clean
+	$(MAKE) BONUS=1 checker
 
 clean:
 	rm -rf */*.o
