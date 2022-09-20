@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 00:34:26 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/19 02:09:27 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/21 02:25:18 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,7 @@ int	print(void)
 		print_inst(type);
 		now = tmp;
 		tmp = tmp->next;
-		free(now);
+		ft_lstdelone(now, free);
 	}
-	free(inst);
 	return (0);
 }
