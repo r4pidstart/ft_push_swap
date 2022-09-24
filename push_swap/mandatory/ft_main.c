@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:26 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/24 16:20:18 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/25 01:35:19 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	print_error(void)
 	ft_lstclear(record(pointer), free);
 	duallist(0, delete, 0);
 	duallist(1, delete, 0);
-	return (!ft_printf("Error\n"));
+	return (!write(2, "Error\n", 6));
 }
 
 int	main(int argc, char **argv)
@@ -25,9 +25,9 @@ int	main(int argc, char **argv)
 	int	idx;
 
 	if (argc == 1)
-		return (!ft_printf("No argument\n"));
+		return (print_error());
 	if (duallist(0, init, 0) || duallist(1, init, 0))
-		return (!ft_printf("Malloc failed\n"));
+		return (print_error());
 	idx = 1;
 	while (idx < argc)
 	{
