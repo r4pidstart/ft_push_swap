@@ -6,11 +6,18 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:26 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/21 02:20:17 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/25 03:26:48 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"ft_header_bonus.h"
+
+t_stack	*get_list(int num)
+{
+	static t_stack	stk[2];
+
+	return (&stk[num]);
+}
 
 static int	read_lines(void)
 {
@@ -22,7 +29,12 @@ static int	read_lines(void)
 	while (line)
 	{
 		if (do_instruction(tmp, line))
+		{
+			ft_printf("%s", line);
+			free(line);
 			return (1);
+		}
+		free(line);
 		line = get_next_line(0);
 	}
 	return (0);
@@ -36,15 +48,16 @@ static void	check(void)
 
 	flag = 0;
 	prev = (long)INT32_MIN - 1;
-	flag += duallist(1, size, 0);
-	while (duallist(0, size, 0))
+	flag += dlist(1, size, 0);
+	while (dlist(0, size, 0))
 	{
-		tmp = duallist(0, pop_front, 0);
+		tmp = dlist(0, pop_front, 0);
+		ft_printf("%d ", tmp);
 		flag += (prev > tmp);
 		prev = tmp;
 	}
-	duallist(0, delete, 0);
-	duallist(1, delete, 0);
+	dlist(0, delete, 0);
+	dlist(1, delete, 0);
 	if (flag)
 		ft_printf("KO\n");
 	else
@@ -57,22 +70,23 @@ int	main(int argc, char **argv)
 
 	if (argc == 1)
 		return (!ft_printf("No argument\n"));
-	if (duallist(0, init, 0) || duallist(1, init, 0))
+	if (dlist(0, init, 0) || dlist(1, init, 0))
 		return (!ft_printf("Malloc failed\n"));
 	idx = 1;
 	while (idx < argc)
 	{
 		if (read_argument(argv[idx++]))
 		{
-			duallist(0, delete, 0);
-			duallist(1, delete, 0);
+			dlist(0, delete, 0);
+			dlist(1, delete, 0);
 			return (!ft_printf("Error\n"));
 		}	
 	}
+	// compress();
 	if (read_lines())
 	{
-		duallist(0, delete, 0);
-		duallist(1, delete, 0);
+		dlist(0, delete, 0);
+		dlist(1, delete, 0);
 		return (!ft_printf("Wrong instruction\n"));
 	}
 	check();

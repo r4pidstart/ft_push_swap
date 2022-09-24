@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:37 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/14 00:18:08 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/25 03:04:05 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,26 +41,26 @@ enum e_cmd
 	size = 6,
 	iterate = 7,
 	modify = 8,
-	front = 11,
-	second_front = 12,
-	back = 13,
-	second_back = 14
+	find = 9
 };
 
+/* ft_main.c */
+t_stack	*get_list(int num);
+
 /* ft_duallist1.c */
-int	duallist(int stack, int cmd, int target);
+int		dlist(int stack, int cmd, int target);
 
 /* ft_duallist2.c */
-int	dl_init(t_stack *stk);
-int	dl_push_back(t_stack *stk, int target);
-int	dl_push_front(t_stack *stk, int target);
-int	dl_iterate(t_stack *stk, int stack);
-int	dl_modify(t_stack *stk, int target);
+int		dl_push_back(t_stack *stk, int target);
+int		dl_push_front(t_stack *stk, int target);
+int		dl_iterate(t_stack *stk, int stack);
+int		dl_find(t_stack *stk, int target);
+int		dl_modify(t_stack *stk, int target);
 
 /* ft_reading_arg.c */
-int	read_argument(char *str);
+int		read_argument(char *str);
 
 /* ft_reading_line.c */
-int	do_instruction(int tmp[], char *line);
+int		do_instruction(int tmp[], char *line);
 
 #endif

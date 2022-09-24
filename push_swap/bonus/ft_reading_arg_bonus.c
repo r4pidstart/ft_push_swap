@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 00:44:30 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/25 02:08:28 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/25 03:02:32 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	read_argument(char *str)
 	while (lst[idx])
 	{
 		tmp = ft_custom_atoi(lst[idx], &chk);
-		duallist(0, push_back, tmp);
+		dlist(0, push_back, tmp);
 		free(lst[idx++]);
 	}
 	free(lst);

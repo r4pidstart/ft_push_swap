@@ -6,25 +6,11 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 17:08:46 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/24 16:24:12 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/25 03:01:40 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"ft_header_bonus.h"
-
-int	dl_init(t_stack *stk)
-{
-	stk->front = (t_dl *)malloc(sizeof(t_dl));
-	stk->back = (t_dl *)malloc(sizeof(t_dl));
-	stk->front->prev = 0;
-	stk->front->next = stk->back;
-	stk->back->prev = stk->front;
-	stk->back->next = 0;
-	stk->size = 0;
-	stk->front->data = -1;
-	stk->back->data = -2;
-	return (!stk->front || !stk->back);
-}
 
 int	dl_push_back(t_stack *stk, int target)
 {
@@ -74,20 +60,20 @@ int	dl_iterate(t_stack *stk, int stack)
 	return (ret);
 }
 
-// int	dl_find(t_stack *stk, int target)
-// {
-// 	t_dl	*iter;
-// 	int		cnt;
+int	dl_find(t_stack *stk, int target)
+{
+	t_dl	*iter;
+	int		cnt;
 
-// 	iter = stk->front->next;
-// 	cnt = 0;
-// 	while (iter && iter->data != target)
-// 	{
-// 		cnt++;
-// 		iter = iter->next;
-// 	}
-// 	return (cnt);
-// }
+	iter = stk->front->next;
+	cnt = 0;
+	while (iter && iter->data != target)
+	{
+		cnt++;
+		iter = iter->next;
+	}
+	return (cnt);
+}
 
 int	dl_modify(t_stack *stk, int target)
 {
@@ -106,4 +92,3 @@ int	dl_modify(t_stack *stk, int target)
 	}
 	return (1);
 }
-

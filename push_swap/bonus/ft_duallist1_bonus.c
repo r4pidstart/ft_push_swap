@@ -6,11 +6,25 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 16:46:16 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/21 02:21:38 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/25 03:01:34 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"ft_header_bonus.h"
+
+static int	dl_init(t_stack *stk)
+{
+	stk->front = (t_dl *)malloc(sizeof(t_dl));
+	stk->back = (t_dl *)malloc(sizeof(t_dl));
+	stk->front->prev = 0;
+	stk->front->next = stk->back;
+	stk->back->prev = stk->front;
+	stk->back->next = 0;
+	stk->size = 0;
+	stk->front->data = -1;
+	stk->back->data = -2;
+	return (!stk->front || !stk->back);
+}
 
 static int	dl_pop_back(t_stack *stk)
 {
@@ -53,42 +67,27 @@ static int	dl_free(t_stack *stk)
 	return (0);
 }
 
-static int	get(t_stack *stk, int cmd)
+int	dlist(int stack, int cmd, int target)
 {
-	if (cmd == front)
-		return (stk->front->next->data);
-	else if (cmd == second_front)
-		return (stk->front->next->next->data);
-	else if (cmd == back)
-		return (stk->back->prev->data);
-	else if (cmd == second_back)
-		return (stk->back->prev->prev->data);
-	else
-		return (-1);
-}
-
-int	duallist(int stack, int cmd, int target)
-{
-	static t_stack	stk[2];
-
 	if (cmd == init)
-		return (dl_init(&stk[stack]));
+		return (dl_init(get_list(stack)));
 	else if (cmd == push_back)
-		return (dl_push_back(&stk[stack], target));
+		return (dl_push_back(get_list(stack), target));
 	else if (cmd == push_front)
-		return (dl_push_front(&stk[stack], target));
+		return (dl_push_front(get_list(stack), target));
 	else if (cmd == pop_back)
-		return (dl_pop_back(&stk[stack]));
+		return (dl_pop_back(get_list(stack)));
 	else if (cmd == pop_front)
-		return (dl_pop_front(&stk[stack]));
+		return (dl_pop_front(get_list(stack)));
 	else if (cmd == delete)
-		return (dl_free(&stk[stack]));
+		return (dl_free(get_list(stack)));
 	else if (cmd == size)
-		return (stk[stack].size);
+		return (get_list(stack)->size);
 	else if (cmd == iterate)
-		return (dl_iterate(&stk[stack], stack));
+		return (dl_iterate(get_list(stack), stack));
+	else if (cmd == find)
+		return (dl_find(get_list(stack), target));
 	else if (cmd == modify)
-		return (dl_modify(&stk[stack], target));
-	else
-		return (get(&stk[stack], cmd));
+		return (dl_modify(get_list(stack), target));
+	return (-1);
 }
