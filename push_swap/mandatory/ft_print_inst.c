@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 00:34:26 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/21 02:25:18 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/25 02:15:11 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	print_inst(int type)
 		ft_printf("rrr\n");
 }
 
-int	print(void)
+void	print(void)
 {
 	t_list	**inst;
 	t_list	*tmp;
@@ -50,20 +50,19 @@ int	print(void)
 	while (tmp)
 	{
 		type = *((int *)tmp->content);
-		// if (type == ra || type == rb)
-		// {
-		// 	if ((type == ra && tmp->next && *((int *)tmp->next->content) == rb) \
-		// 		|| (tmp->next && *((int *)tmp->next->content) == ra))
-		// 	{
-		// 		print_inst(rr);
-		// 		tmp = tmp->next->next;
-		// 		continue ;
-		// 	}
-		// }
+		if (tmp->next && ((type == ra && *((int *)tmp->next->content) == rb) \
+			|| (type == rb && *((int *)tmp->next->content) == ra)))
+		{
+			print_inst(rr);
+			now = tmp;
+			tmp = tmp->next->next;
+			ft_lstdelone(now->next, free);
+			ft_lstdelone(now, free);
+			continue ;
+		}
 		print_inst(type);
 		now = tmp;
 		tmp = tmp->next;
 		ft_lstdelone(now, free);
 	}
-	return (0);
 }
