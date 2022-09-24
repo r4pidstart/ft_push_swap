@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 16:46:16 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/24 13:43:17 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/24 16:20:54 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,20 +60,6 @@ t_stack	*get_list(int num)
 	return (&stk[num]);
 }
 
-static int	get(t_stack *stk, int cmd)
-{
-	if (cmd == front)
-		return (stk->front->next->data);
-	else if (cmd == second_front)
-		return (stk->front->next->next->data);
-	else if (cmd == back)
-		return (stk->back->prev->data);
-	else if (cmd == second_back)
-		return (stk->back->prev->prev->data);
-	else
-		return (-1);
-}
-
 int	duallist(int stack, int cmd, int target)
 {
 	if (cmd == init)
@@ -96,34 +82,5 @@ int	duallist(int stack, int cmd, int target)
 		return (dl_find(get_list(stack), target));
 	else if (cmd == modify)
 		return (dl_modify(get_list(stack), target));
-	else
-		return (get(get_list(stack), cmd));
+	return (-1);
 }
-
-// int	duallist(int stack, int cmd, int target)
-// {
-// 	static t_stack	stk[2];
-
-// 	if (cmd == init)
-// 		return (dl_init(&stk[stack]));
-// 	else if (cmd == push_back)
-// 		return (dl_push_back(&stk[stack], target));
-// 	else if (cmd == push_front)
-// 		return (dl_push_front(&stk[stack], target));
-// 	else if (cmd == pop_back)
-// 		return (dl_pop_back(&stk[stack]));
-// 	else if (cmd == pop_front)
-// 		return (dl_pop_front(&stk[stack]));
-// 	else if (cmd == delete)
-// 		return (dl_free(&stk[stack]));
-// 	else if (cmd == size)
-// 		return (stk[stack].size);
-// 	else if (cmd == iterate)
-// 		return (dl_iterate(&stk[stack], stack));
-// 	else if (cmd == find)
-// 		return (dl_find(&stk[stack], target));
-// 	else if (cmd == modify)
-// 		return (dl_modify(&stk[stack], target));
-// 	else
-// 		return (get(&stk[stack], cmd));
-// }

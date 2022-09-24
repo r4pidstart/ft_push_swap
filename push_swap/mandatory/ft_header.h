@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:37 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/24 12:35:47 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/24 16:21:11 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,7 @@ enum e_cmd
 	size = 6,
 	iterate = 7,
 	modify = 8,
-	find = 9,
-	front = 11,
-	second_front = 12,
-	back = 13,
-	second_back = 14
+	find = 9
 };
 
 enum e_instruction

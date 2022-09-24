@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:43:56 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/24 16:12:32 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/24 16:20:29 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -293,65 +293,13 @@ int	one_to_top(void)
 }
 
 int	sort(void)
-{	
-	t_dl *t=get_list(0)->front->next;
-	while (t->next)
-	{
-		ft_printf("%d ", t->data);
-		t=t->next;
-	}
-	ft_printf("\n");
+{
 	if (partitioning() || merging())
 		return (1);
 	while (duallist(1, size, 0))
-	{
 		if (greedy_method())
 			return (1);
-		ft_printf("sa : ");
-		t=get_list(0)->front->next;
-		while (t->next)
-		{
-			ft_printf("%d ", t->data);
-			t=t->next;
-		}
-		ft_printf("\n");
-		ft_printf("sb : ");
-		t=get_list(1)->front->next;
-		while (t->next)
-		{
-			ft_printf("%d ", t->data);
-			t=t->next;
-		}
-		ft_printf("\n");
-	}
 	if (one_to_top())
 		return (1);
 	return (0);
 }
-
-// static int	find_and_push(void)
-// {
-// 	t_finding	fi;
-
-// 	fi = (t_finding){.idx = duallist(1, size, 0), .ret = 0};
-// 	while (--fi.idx >= 0)
-// 	{
-// 		fi.dir = duallist(1, find, fi.idx + 1) > (duallist(1, size, 0) / 2);
-// 		while (duallist(1, front, 0) != fi.idx + 1)
-// 		{
-// 			if (!fi.dir)
-// 			{
-// 				duallist(1, push_back, duallist(1, pop_front, 0));
-// 				fi.ret += (int)(size_t)record(rb);
-// 			}
-// 			else
-// 			{
-// 				duallist(1, push_front, duallist(1, pop_back, 0));
-// 				fi.ret += (int)(size_t)record(rrb);
-// 			}
-// 		}
-// 		duallist(0, push_front, duallist(1, pop_front, 0));
-// 		fi.ret += (int)(size_t)record(pa);
-// 	}
-// 	return (fi.ret);
-// }
