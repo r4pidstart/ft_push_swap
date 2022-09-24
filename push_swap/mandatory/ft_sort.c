@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:43:56 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/24 16:20:29 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/24 16:25:08 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,6 @@ static int	find_target_in_0_min_max(t_stack *stack)
 	cnt = 0;
 	cur = stack->front->next;
 	max = 0;
-
 	while (cur)
 	{
 		if (max < cur->data)
