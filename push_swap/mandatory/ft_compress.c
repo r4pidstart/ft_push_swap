@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 00:17:19 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/14 19:29:48 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/25 02:44:18 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	comp_assign(t_compress *comp)
 {
 	comp->idx[0] = -1;
 	while (++comp->idx[0] < comp->siz)
-		duallist(0, modify, comp->compressed[comp->idx[0]]);
+		dlist(0, modify, comp->compressed[comp->idx[0]]);
 }
 
 int	compress(void)
@@ -24,13 +24,13 @@ int	compress(void)
 	t_compress	comp;
 
 	comp = (t_compress){.prev = (long)INT32_MIN - 1, \
-		.tmp = (long)INT32_MAX + 1, .siz = duallist(0, size, 0), .idx[0] = -1};
+		.tmp = (long)INT32_MAX + 1, .siz = dlist(0, size, 0), .idx[0] = -1};
 	while (++comp.idx[0] < comp.siz)
 	{
 		comp.idx[1] = -1;
 		while (++comp.idx[1] < comp.siz)
 		{
-			comp.now = duallist(0, iterate, 0);
+			comp.now = dlist(0, iterate, 0);
 			if (comp.prev < comp.now && comp.now <= comp.tmp)
 			{
 				if (comp.tmp == comp.now)

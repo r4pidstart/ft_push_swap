@@ -6,11 +6,25 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 16:46:16 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/24 16:24:39 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/25 02:43:20 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"ft_header.h"
+
+static int	dl_init(t_stack *stk)
+{
+	stk->front = (t_dl *)malloc(sizeof(t_dl));
+	stk->back = (t_dl *)malloc(sizeof(t_dl));
+	stk->front->prev = 0;
+	stk->front->next = stk->back;
+	stk->back->prev = stk->front;
+	stk->back->next = 0;
+	stk->size = 0;
+	stk->front->data = -1;
+	stk->back->data = -2;
+	return (!stk->front || !stk->back);
+}
 
 static int	dl_pop_back(t_stack *stk)
 {
@@ -53,14 +67,7 @@ static int	dl_free(t_stack *stk)
 	return (0);
 }
 
-t_stack	*get_list(int num)
-{
-	static t_stack	stk[2];
-
-	return (&stk[num]);
-}
-
-int	duallist(int stack, int cmd, int target)
+int	dlist(int stack, int cmd, int target)
 {
 	if (cmd == init)
 		return (dl_init(get_list(stack)));

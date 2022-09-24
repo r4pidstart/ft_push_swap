@@ -6,25 +6,11 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 17:08:46 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/19 01:28:52 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/25 02:28:10 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"ft_header.h"
-
-int	dl_init(t_stack *stk)
-{
-	stk->front = (t_dl *)malloc(sizeof(t_dl));
-	stk->back = (t_dl *)malloc(sizeof(t_dl));
-	stk->front->prev = 0;
-	stk->front->next = stk->back;
-	stk->back->prev = stk->front;
-	stk->back->next = 0;
-	stk->size = 0;
-	stk->front->data = -1;
-	stk->back->data = -2;
-	return (!stk->front || !stk->back);
-}
 
 int	dl_push_back(t_stack *stk, int target)
 {

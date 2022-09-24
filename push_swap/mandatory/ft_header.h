@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:37 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/25 02:15:21 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/25 02:43:30 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,20 @@ typedef struct s_finding
 	int	ret;
 }t_finding;
 
+typedef struct s_greedy
+{
+	int		min_count;
+	t_dl	*p0;
+	t_dl	*p1;
+	t_dl	*tmp0;
+	t_dl	*tmp1;
+	int		cnt0;
+	int		cnt1;
+	int		mov0;
+	int		mov1;
+	int		tmp;
+}t_greedy;
+
 enum e_cmd
 {
 	init = 0,
@@ -88,12 +102,13 @@ enum e_instruction
 	pointer = 20
 };
 
-/* ft_duallist1.c */
-int		duallist(int stack, int cmd, int target);
+/* ft_main.c */
 t_stack	*get_list(int num);
 
+/* ft_duallist1.c */
+int		dlist(int stack, int cmd, int target);
+
 /* ft_duallist2.c */
-int		dl_init(t_stack *stk);
 int		dl_push_back(t_stack *stk, int target);
 int		dl_push_front(t_stack *stk, int target);
 int		dl_iterate(t_stack *stk, int stack);
@@ -109,8 +124,16 @@ int		compress(void);
 /* ft_record.c */
 t_list	**record(int type);
 
-/* ft_sort.c */
-int		sort(void);
+/* ft_partition.c */
+int		partitioning(void);
+int		merging(void);
+
+/* ft_greedy1.c */
+int		greedy_method(void);
+int		one_to_top(void);
+
+/* ft_greedy2.c */
+int		manipulate_stack(t_greedy *g);
 
 /* ft_print_inst.c */
 void	print(void);
