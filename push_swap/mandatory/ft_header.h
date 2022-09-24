@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:37 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/19 01:29:10 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/24 12:35:47 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ enum e_instruction
 
 /* ft_duallist1.c */
 int		duallist(int stack, int cmd, int target);
+t_stack	*get_list(int num);
 
 /* ft_duallist2.c */
 int		dl_init(t_stack *stk);

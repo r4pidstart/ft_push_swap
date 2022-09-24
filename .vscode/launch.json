@@ -9,7 +9,7 @@
 			"type": "lldb",
 			"request": "launch",
 			"program": "${workspaceFolder}/push_swap/push_swap",
-			"args": ["11 21 31 14 52 6 63 85"],
+			"args": ["11 8 3 18 19 9 17 13 20 15 16 1 10 4 14 6 7 2 12 5 "],
 			"stopAtEntry": false,
 			"cwd": "${fileDirname}",
 			"environment": [],

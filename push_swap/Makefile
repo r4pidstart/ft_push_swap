@@ -6,7 +6,7 @@
 #    By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/31 12:48:31 by tjo               #+#    #+#              #
-#    Updated: 2022/09/21 02:19:19 by tjo              ###   ########.fr        #
+#    Updated: 2022/09/24 12:03:58 by tjo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ $(LIBFT):
 %.o: %.c
 	gcc $(CFLAGS) -c $^ -o $@
 	
-bonus: clean
+bonus:
 	$(MAKE) BONUS=1 checker
 
 clean:
@@ -50,7 +50,8 @@ clean:
 	make clean -C $(LIBFT_SRCS)
 	
 fclean: clean
-	rm -rf $(NAME)
+	rm -rf push_swap
+	rm -rf checker
 	make fclean -C $(LIBFT_SRCS)
 
 re: fclean all
