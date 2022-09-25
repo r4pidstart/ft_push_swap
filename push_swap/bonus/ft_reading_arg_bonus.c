@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 00:44:30 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/25 03:02:32 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/25 16:21:54 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	read_argument(char *str)
 	int		tmp;
 
 	lst = ft_split(str, ' ');
-	if (!lst)
+	if (!lst || !*lst)
 		return (1);
 	idx = 0;
 	chk = 0;
@@ -61,4 +61,24 @@ int	read_argument(char *str)
 	}
 	free(lst);
 	return (chk);
+}
+
+int	is_duplicated(void)
+{
+	t_dl	*p1;
+	t_dl	*p2;
+
+	p1 = get_list(0)->front->next;
+	while (p1->next)
+	{
+		p2 = p1->next;
+		while (p2->next)
+		{
+			if (p1->data == p2->data)
+				return (1);
+			p2 = p2->next;
+		}
+		p1 = p1->next;
+	}
+	return (0);
 }

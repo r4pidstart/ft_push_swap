@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:37 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/25 03:04:05 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/25 16:23:56 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int		dl_modify(t_stack *stk, int target);
 
 /* ft_reading_arg.c */
 int		read_argument(char *str);
+int		is_duplicated(void);
 
 /* ft_reading_line.c */
 int		do_instruction(int tmp[], char *line);

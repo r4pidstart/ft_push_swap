@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:26 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/25 10:50:02 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/25 16:23:18 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@ t_stack	*get_list(int num)
 	static t_stack	stk[2];
 
 	return (&stk[num]);
+}
+
+static int	print_error(void)
+{
+	dlist(0, delete, 0);
+	dlist(1, delete, 0);
+	return (!write(2, "Error\n", 6));
 }
 
 static int	read_lines(void)
@@ -69,24 +76,16 @@ int	main(int argc, char **argv)
 	int	idx;
 
 	if (argc == 1)
-		return (!ft_printf("No argument\n"));
+		return (0);
 	if (dlist(0, init, 0) || dlist(1, init, 0))
-		return (!ft_printf("Malloc failed\n"));
+		return (print_error());
 	idx = 1;
 	while (idx < argc)
 	{
 		if (read_argument(argv[idx++]))
-		{
-			dlist(0, delete, 0);
-			dlist(1, delete, 0);
-			return (!ft_printf("Error\n"));
-		}	
+			return (print_error());
 	}
-	if (read_lines())
-	{
-		dlist(0, delete, 0);
-		dlist(1, delete, 0);
-		return (!ft_printf("Wrong instruction\n"));
-	}
+	if (is_duplicated() || read_lines())
+		return (print_error());
 	check();
 }
