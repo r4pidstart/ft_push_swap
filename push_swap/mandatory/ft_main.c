@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:26 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/25 14:31:03 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/25 15:39:48 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ int	main(int argc, char **argv)
 			return (print_error());
 	if (dlist(0, size, 0) < 7)
 	{
-		if (compress() || sort_small(0))
+		if (is_duplicated() || compress() || sort_small(0))
 			return (print_error());
 	}
 	else
 	{
-		if (compress() || partitioning() || merging())
+		if (is_duplicated() || compress() || partitioning() || merging())
 			return (print_error());
 		while (dlist(1, size, 0))
 			if (greedy_method())
