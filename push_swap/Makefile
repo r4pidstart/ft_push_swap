@@ -6,7 +6,7 @@
 #    By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/31 12:48:31 by tjo               #+#    #+#              #
-#    Updated: 2022/09/25 02:44:56 by tjo              ###   ########.fr        #
+#    Updated: 2022/09/25 11:46:13 by tjo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 LIBFT = mylibft/libft.a
 LIBFT_SRCS = mylibft
-SRCS = ft_main.c ft_duallist1.c ft_duallist2.c ft_reading_arg.c ft_compress.c \
+SRCS = ft_main.c ft_duallist1.c ft_duallist2.c ft_reading_arg.c ft_sort_small.c ft_compress.c \
 	   ft_record.c ft_partition.c ft_greedy1.c ft_greedy2.c ft_print_inst.c
 
 ifdef BONUS

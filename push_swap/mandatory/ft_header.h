@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:37 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/25 10:48:37 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/25 11:45:57 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,9 @@ int		compress(void);
 
 /* ft_record.c */
 t_list	**record(int type);
+
+/* ft_sort_small.c */
+int		sort_small(int stack);
 
 /* ft_partition.c */
 int		partitioning(void);

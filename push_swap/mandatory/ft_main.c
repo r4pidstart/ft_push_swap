@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:26 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/25 02:58:26 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/25 14:31:03 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,25 @@ int	main(int argc, char **argv)
 {
 	int	idx;
 
-	if (argc == 1)
-		return (print_error());
-	if (dlist(0, init, 0) || dlist(1, init, 0))
+	if (argc == 1 || dlist(0, init, 0) || dlist(1, init, 0))
 		return (print_error());
 	idx = 1;
 	while (idx < argc)
-	{
 		if (read_argument(argv[idx++]))
 			return (print_error());
-	}
-	if (compress() || partitioning() || merging())
-		return (print_error());
-	while (dlist(1, size, 0))
-		if (greedy_method())
+	if (dlist(0, size, 0) < 7)
+	{
+		if (compress() || sort_small(0))
 			return (print_error());
+	}
+	else
+	{
+		if (compress() || partitioning() || merging())
+			return (print_error());
+		while (dlist(1, size, 0))
+			if (greedy_method())
+				return (print_error());
+	}
 	if (one_to_top())
 		return (print_error());
 	print();

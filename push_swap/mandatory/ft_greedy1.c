@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:43:56 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/25 02:58:16 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/25 15:17:13 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ int	one_to_top(void)
 	int	ret;
 
 	ret = 0;
-	if (dlist(0, find, 1) < dlist(0, size, 0) / 2)
+	if (dlist(0, find, 1) < (dlist(0, size, 0) + 1) / 2)
 	{
 		while (get_list(0)->front->next->data != 1)
 		{
