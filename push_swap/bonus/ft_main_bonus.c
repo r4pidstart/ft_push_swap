@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:26 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/25 03:26:48 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/25 10:50:02 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ int	main(int argc, char **argv)
 			return (!ft_printf("Error\n"));
 		}	
 	}
-	// compress();
 	if (read_lines())
 	{
 		dlist(0, delete, 0);
