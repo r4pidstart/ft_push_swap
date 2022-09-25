@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:26 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/25 16:23:18 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/25 16:33:39 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ static int	read_lines(void)
 	{
 		if (do_instruction(tmp, line))
 		{
-			ft_printf("%s", line);
 			free(line);
 			return (1);
 		}
@@ -59,7 +58,6 @@ static void	check(void)
 	while (dlist(0, size, 0))
 	{
 		tmp = dlist(0, pop_front, 0);
-		ft_printf("%d ", tmp);
 		flag += (prev > tmp);
 		prev = tmp;
 	}

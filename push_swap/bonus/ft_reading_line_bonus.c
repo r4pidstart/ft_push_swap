@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 22:39:29 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/25 03:25:35 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/25 16:32:35 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ static int	do_instruction2(char *line)
 
 int	do_instruction(int tmp[], char *line)
 {
-	if (!ft_strncmp(line, "sa", 2) && dlist(0, size, 0) < 2)
+	if (!ft_strncmp(line, "sa", 2) && dlist(0, size, 0) >= 2)
 		return (list_swap(0, tmp));
-	if (!ft_strncmp(line, "sb", 2) && dlist(1, size, 0) < 2)
+	if (!ft_strncmp(line, "sb", 2) && dlist(1, size, 0) >= 2)
 		return (list_swap(1, tmp));
 	if (!ft_strncmp(line, "ss", 2) \
 		&& dlist(0, size, 0) < 2 && dlist(1, size, 0) < 2)
