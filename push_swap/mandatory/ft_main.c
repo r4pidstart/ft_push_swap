@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:26 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/25 15:39:48 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/25 15:47:47 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ int	main(int argc, char **argv)
 {
 	int	idx;
 
-	if (argc == 1 || dlist(0, init, 0) || dlist(1, init, 0))
+	if (argc == 1)
+		return (0);
+	if (dlist(0, init, 0) || dlist(1, init, 0))
 		return (print_error());
 	idx = 1;
 	while (idx < argc)
@@ -50,7 +52,6 @@ int	main(int argc, char **argv)
 			if (greedy_method())
 				return (print_error());
 	}
-	if (one_to_top())
+	if (one_to_top() || print())
 		return (print_error());
-	print();
 }

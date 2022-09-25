@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:37 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/25 15:40:38 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/25 15:47:40 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,6 +140,6 @@ int		one_to_top(void);
 int		manipulate_stack(t_greedy *g);
 
 /* ft_print_inst.c */
-void	print(void);
+int		print(void);
 
 #endif

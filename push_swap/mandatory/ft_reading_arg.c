@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 00:44:30 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/25 15:43:13 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/25 15:53:12 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	read_argument(char *str)
 	int		tmp;
 
 	lst = ft_split(str, ' ');
-	if (!lst)
+	if (!lst || !*lst)
 		return (1);
 	idx = 0;
 	chk = 0;

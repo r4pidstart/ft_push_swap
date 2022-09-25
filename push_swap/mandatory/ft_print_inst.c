@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 00:34:26 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/25 15:31:00 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/25 15:47:32 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	inst_optimazation(int ty, t_list **tmp, t_list **now)
 	return (0);
 }
 
-void	print(void)
+int	print(void)
 {
 	t_list	**inst;
 	t_list	*tmp;
@@ -82,4 +82,5 @@ void	print(void)
 		tmp = tmp->next;
 		ft_lstdelone(now, free);
 	}
+	return (0);
 }
