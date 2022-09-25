@@ -6,42 +6,52 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 00:17:19 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/25 02:44:18 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/25 10:48:29 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"ft_header.h"
 
-static void	comp_assign(t_compress *comp)
+static void	comp_assign(int	*arr)
 {
-	comp->idx[0] = -1;
-	while (++comp->idx[0] < comp->siz)
-		dlist(0, modify, comp->compressed[comp->idx[0]]);
+	t_dl	*p;
+	int		idx;
+
+	idx = 0;
+	p = get_list(0)->front->next;
+	while (p->next)
+	{
+		p->data = arr[idx++];
+		p = p->next;
+	}
+	free(arr);
 }
 
 int	compress(void)
 {
 	t_compress	comp;
 
-	comp = (t_compress){.prev = (long)INT32_MIN - 1, \
-		.tmp = (long)INT32_MAX + 1, .siz = dlist(0, size, 0), .idx[0] = -1};
-	while (++comp.idx[0] < comp.siz)
+	comp.cnt = -1;
+	comp.tmp = (int *)ft_calloc(dlist(0, size, 0), sizeof(int));
+	if (!comp.tmp)
+		return (1);
+	while (++comp.cnt <= dlist(0, size, 0))
 	{
-		comp.idx[1] = -1;
-		while (++comp.idx[1] < comp.siz)
-		{
-			comp.now = dlist(0, iterate, 0);
-			if (comp.prev < comp.now && comp.now <= comp.tmp)
+		comp.prev_min = (long)INT32_MAX + 1;
+		comp.p = get_list(0)->front->next;
+		comp.idx = 0;
+		while (comp.p->next)
+		{	
+			if (comp.p->data < comp.prev_min && !comp.tmp[comp.idx])
 			{
-				if (comp.tmp == comp.now)
-					return (1);
-				comp.tmp = comp.now;
+				comp.prev_idx = comp.idx;
+				comp.prev_min = comp.p->data;
 			}
+			comp.idx++;
+			comp.p = comp.p->next;
 		}
-		comp.compressed[comp.idx[0]] = comp.tmp;
-		comp.prev = comp.tmp;
-		comp.tmp = (long)INT32_MAX + 1;
+		comp.tmp[comp.prev_idx] = comp.cnt;
 	}
-	comp_assign(&comp);
+	comp_assign(comp.tmp);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:37 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/25 02:43:30 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/25 10:48:37 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ typedef struct s_stack
 
 typedef struct s_compress
 {
-	int		compressed[500];
-	int		idx[2];
-	long	prev;
-	long	tmp;
-	int		now;
-	int		siz;
+	t_dl	*p;
+	int		*tmp;
+	long	prev_min;
+	int		prev_idx;
+	int		cnt;
+	int		idx;
 }t_compress;
 
 typedef struct s_partitioning
