@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 00:34:26 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/25 02:15:11 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/25 15:30:17 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,31 @@ static void	print_inst(int type)
 		ft_printf("rrr\n");
 }
 
+int	inst_optimazation(int ty, t_list **tmp, t_list **now)
+{
+	if ((*tmp)->next && ((ty == ra && *((int *)(*tmp)->next->content) == rb) \
+		|| (ty == rb && *((int *)(*tmp)->next->content) == ra)))
+	{
+		print_inst(rr);
+		(*now) = (*tmp);
+		(*tmp) = (*tmp)->next->next;
+		ft_lstdelone((*now)->next, free);
+		ft_lstdelone((*now), free);
+		return (1);
+	}
+	if ((*tmp)->next && ((ty == rra && *((int *)(*tmp)->next->content) == rrb) \
+		|| (ty == rrb && *((int *)(*tmp)->next->content) == rra)))
+	{
+		print_inst(rrr);
+		(*now) = (*tmp);
+		(*tmp) = (*tmp)->next->next;
+		ft_lstdelone((*now)->next, free);
+		ft_lstdelone((*now), free);
+		return (1);
+	}
+	return (0);
+}
+
 void	print(void)
 {
 	t_list	**inst;
@@ -50,16 +75,8 @@ void	print(void)
 	while (tmp)
 	{
 		type = *((int *)tmp->content);
-		if (tmp->next && ((type == ra && *((int *)tmp->next->content) == rb) \
-			|| (type == rb && *((int *)tmp->next->content) == ra)))
-		{
-			print_inst(rr);
-			now = tmp;
-			tmp = tmp->next->next;
-			ft_lstdelone(now->next, free);
-			ft_lstdelone(now, free);
+		if (inst_optimazation(type, &tmp, &now))
 			continue ;
-		}
 		print_inst(type);
 		now = tmp;
 		tmp = tmp->next;
