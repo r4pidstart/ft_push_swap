@@ -5,18 +5,32 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "(lldb) 시작",
+			"name": "mandatory",
 			"type": "lldb",
 			"request": "launch",
 			"program": "${workspaceFolder}/push_swap/push_swap",
-			"args": ["11 8 3 18 19 9 17 13 20 15 16 1 10 4 14 6 7 2 12 5 "],
+			"args": [""],
 			"stopAtEntry": false,
 			"cwd": "${fileDirname}",
 			"environment": [],
 			"externalConsole": false,
 			"MIMode": "lldb",
-			"preLaunchTask": "build"
+			"preLaunchTask": "build_mandatory"
+		},
+		{
+			"name": "bonus",
+			"type": "lldb",
+			"request": "launch",
+			"program": "${workspaceFolder}/push_swap/checker",
+			"args": ["3 2 1"],
+			"stopAtEntry": false,
+			"cwd": "${fileDirname}",
+			"environment": [],
+			"externalConsole": false,
+			"MIMode": "lldb",
+			"preLaunchTask": "build_bonus"
 		}
+
 
 	]
 }

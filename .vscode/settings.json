@@ -28,7 +28,16 @@
 		"forward_list": "c",
 		"list": "c",
 		"queue": "c",
-		"vector": "c"
+		"vector": "c",
+		"__bit_reference": "c",
+		"__hash_table": "c",
+		"__tree": "c",
+		"map": "c",
+		"scoped_allocator": "c",
+		"set": "c",
+		"thread": "c",
+		"unordered_map": "c",
+		"unordered_set": "c"
 	},
     "editor.insertSpaces": false,
 	"editor.detectIndentation": false,

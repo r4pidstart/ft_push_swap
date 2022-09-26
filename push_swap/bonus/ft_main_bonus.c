@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:26 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/25 16:33:39 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/26 16:07:08 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,22 @@ static int	print_error(void)
 static int	read_lines(void)
 {
 	char	*line;
+	char	*trimed;
 	int		tmp[2];
 
 	(void)tmp;
 	line = get_next_line(0);
 	while (line)
 	{
-		if (do_instruction(tmp, line))
+		trimed = ft_strtrim(line, "\n");
+		free(line);
+		if (!trimed)
+			return (1);
+		if (do_instruction(tmp, trimed))
 		{
-			free(line);
+			free(trimed);
 			return (1);
 		}
-		free(line);
 		line = get_next_line(0);
 	}
 	return (0);
