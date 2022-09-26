@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:26 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/26 16:07:08 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/26 16:25:36 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ static int	read_lines(void)
 			free(trimed);
 			return (1);
 		}
+		free(trimed);
 		line = get_next_line(0);
 	}
 	return (0);
