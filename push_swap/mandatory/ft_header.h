@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:37 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/25 15:47:40 by tjo              ###   ########.fr       */
+/*   Updated: 2022/09/26 20:07:25 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FT_HEADER_H
 
 # include<stdlib.h>
-# include"../mylibft/libft.h"
+# include"../ft_mylibft/libft.h"
 
 typedef struct s_dl
 {

@@ -6,15 +6,15 @@
 #    By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/31 12:48:31 by tjo               #+#    #+#              #
-#    Updated: 2022/09/25 11:46:13 by tjo              ###   ########.fr        #
+#    Updated: 2022/09/26 20:09:17 by tjo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CFLAGS = -Wall -Wextra -Werror
 
-LIBFT = mylibft/libft.a
-LIBFT_SRCS = mylibft
+LIBFT = ft_mylibft/libft.a
+LIBFT_SRCS = ft_mylibft
 SRCS = ft_main.c ft_duallist1.c ft_duallist2.c ft_reading_arg.c ft_sort_small.c ft_compress.c \
 	   ft_record.c ft_partition.c ft_greedy1.c ft_greedy2.c ft_print_inst.c
 
@@ -33,7 +33,7 @@ $(NAME): $(LIBFT) $(addprefix $(FOLDER), $(SRCS:.c=.o))
 	clang -Wall -Wextra -Werror -g3 -ggdb \
 	-o ./$(NAME) \
 	$(addprefix $(FOLDER), $(SRCS)) \
-	-Lmylibft -lft
+	-L$(LIBFT_SRCS) -lft
 
 $(LIBFT):
 	make -C $(LIBFT_SRCS) all
