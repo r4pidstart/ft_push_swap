@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:26 by tjo               #+#    #+#             */
-/*   Updated: 2022/09/26 19:55:24 by tjo              ###   ########.fr       */
+/*   Updated: 2022/10/01 11:32:00 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,16 @@ static int	check(void)
 {
 	int		flag;
 	long	prev;
-	int		tmp;
+	t_dl	*cur;
 
 	flag = 0;
 	prev = (long)INT32_MIN - 1;
-	flag += dlist(1, size, 0);
-	while (dlist(0, size, 0))
+	cur = get_list(0)->front->next;
+	while (cur->next)
 	{
-		tmp = dlist(0, pop_front, 0);
-		flag += (prev > tmp);
-		prev = tmp;
+		flag += (prev > cur->data);
+		prev = cur->data;
+		cur = cur->next;
 	}
 	if (!flag)
 	{
