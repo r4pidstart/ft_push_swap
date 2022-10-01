@@ -6,7 +6,7 @@
 /*   By: tjo <tjo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:43:26 by tjo               #+#    #+#             */
-/*   Updated: 2022/10/01 11:32:00 by tjo              ###   ########.fr       */
+/*   Updated: 2022/10/01 17:12:58 by tjo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int	check(void)
 	cur = get_list(0)->front->next;
 	while (cur->next)
 	{
-		flag += (prev > cur->data);
+		flag += (prev >= cur->data);
 		prev = cur->data;
 		cur = cur->next;
 	}
